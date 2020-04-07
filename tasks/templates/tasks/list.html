@@ -1,0 +1,21 @@
+
+<h1>To do list</h1>
+
+<form action="/" method="post">
+    {% csrf_token %}
+ {{form.title}}
+ <input type="submit" name="Darshan" placeholder="Add new...">
+</form>
+
+
+{% for task in tasks %}
+   <div class='container'>
+       <table>
+        <p>{{task.id}}. {{task}}
+            <button><a href="{% url 'update_me' task.id %}">UpDate Me!</a></button>
+            <button><a href="{% url 'delete_me' task.id %}">Delete Me!</a></button>
+            </p>
+       </table>
+       
+    </div>
+{% endfor %}
